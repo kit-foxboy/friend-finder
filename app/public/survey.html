@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container content-body mt-5">
-        <form> 
+        <form id="survey"> 
             <div class="row">
                 <div class="col-lg-4 col-md-12 mb-3">
                     <div class="card">
@@ -24,20 +24,20 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputImage">Image URL</label>
-                                <input type="text" class="form-control" id="inputImage" placeholder="URL">
+                                <input type="text" name="photo" class="form-control" id="inputImage" placeholder="URL">
                             </div>
                             <div class="form-group">
                                 <label for="inputName">Your Name</label>
-                                <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
                             </div>
                             <div class="form-group">
                                 <label for="inputDescription">Description</label>
-                                <textarea class="form-control" id="inputDescription"></textarea>
+                                <textarea name="description" class="form-control" id="inputDescription"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-12">
+                <div class="col-lg-8 col-md-12 mb-3">
                     <div class="card">
                         <div class="card-header bg-secondary text-light">
                             <h3>Survey</h3>
@@ -53,11 +53,12 @@
                                     <div class="col-11">
                                         <div class="form-group slideContainer border-none">
                                             <label for="inputQuestion{idx}">{question}</label>
-                                            <input type="range" class="slider" id="inputQuestion{idx}" min="1" max="5" value="3">
+                                            <input type="range" name="scores" class="slider" id="inputQuestion{idx}" min="1" max="5" value="3">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <button class="btn btn-primary" type="submit">Submit</button>
                         </div>
                     </div>
                 </div>
