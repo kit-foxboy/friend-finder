@@ -15,23 +15,36 @@ module.exports = function(app) {
 
     //POST routes
     app.post("/api/friends", (req, res) => {
-        const scores = (req.body.scores) ? JSON.parse(req.body.scores) : [];
-        if (!req.body.name || !req.body.photo || scores.length != questions.length) {
+        
+        req.body.scores = JSON.parse(req.body.scores);
+        if (!req.body.name || !req.body.photo || req.body.scores.length != questions.length) {
             res.json({error: "Invalid form data"});
         } else {
-            friends.push({
-                name: req.body.name,
-                photo: req.body.photo,
-                description: (req.body.description) ? req.body.description : "",
-                scores: scores
-            });
-            res.json(matchFriends(req.body));
+            const bestMatch = getBestMatch(req.body.scores);
+            friends.push(req.body);
+            res.json(bestMatch);
         }
     });
 }
 
-function matchFriends(newFriend) {
+function getBestMatch(scores) {
 
-    //TODO
-    return newFriend;
+    let bestMatch = null;
+    let bestDiff;
+
+    friends.forEach((friend, friendIdx) => {
+        
+        let totalDifference = 0;
+        
+        for(let idx = 0; idx < friend.scores.length; idx++) {
+            totalDifference += Math.abs(scores[idx] - friend.scores[idx]);
+        }
+
+        if (bestMatch === null || totalDifference < bestDiff) {
+            bestDiff = totalDifference;
+            bestMatch = friends[friendIdx];
+        }
+    });
+
+    return bestMatch;
 }

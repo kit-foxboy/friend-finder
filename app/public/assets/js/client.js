@@ -9,9 +9,9 @@ $(document).ready(function () {
         $(this).find("input,textarea").not(".slider").each(function() {
             post[$(this).attr("name")] = $(this).val();
         });
-        post.scores = JSON.stringify($(".slider").map(function() {
+        post.scores = "[" + $(".slider").map(function() {
             return $(this).val();
-        }).get());
+        }).get().join(",") + "]";
 
         //post data
         $.ajax({
@@ -19,7 +19,14 @@ $(document).ready(function () {
             url: "/api/friends",
             data: post
         }).then(function(results) {
-            console.log(results);
+            
+            var modal = $('#match-modal');
+            var body = modal.find(".modal-body").html("");
+            body.append($("<img>").attr("src", results.photo));
+            body.append($("<h5>").html(results.name));
+            body.append($("<p>").html(results.description));
+
+            modal.modal();
         });
     });
 
