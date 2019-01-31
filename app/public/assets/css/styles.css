@@ -1,0 +1,96 @@
+/* Bootstrap Overrides */
+.card-header {
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.card {
+    border-radius: 20px !important;
+}
+
+.bg-primary {
+    background-color: #40c4ed !important;
+}
+
+.bg-secondary {
+    background-color: #de245c !important;
+}
+
+
+
+/* Custom Styles */
+body {
+    background-image: linear-gradient(135deg, #dbdbdb 25%, #cccccc 25%, #cccccc 50%, #dbdbdb 50%, #dbdbdb 75%, #cccccc 75%, #cccccc 100%);
+    background-size: 56.57px 56.57px;
+}
+
+.jumbotron {
+    background: #de245c; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #de245c 0%, #40c4ed 21%, #ffffff 49%, #de245c 80%, #40c4ed 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #de245c 0%,#40c4ed 21%,#ffffff 49%,#de245c 80%,#40c4ed 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #de245c 0%,#40c4ed 21%,#ffffff 49%,#de245c 80%,#40c4ed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#de245c', endColorstr='#40c4ed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.fullscreen {
+    height: 100vh;
+}
+
+.tiny {
+    font-size: 4px;   
+}
+
+.icon-container {
+    display: none;
+}
+
+.answer-icon img {
+    width: 50px;
+}
+
+.slidecontainer {
+    width: 100%;
+}
+  
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    width: 100%;
+    height: 10px;
+    background: #dbdbdb;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    background: #40c4ed;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    background: #40c4ed;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 488px) {
+    
+    .icon-container {
+        display: block;
+        color: gray;
+        opacity: .25;
+    }
+}
